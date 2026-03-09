@@ -65,6 +65,12 @@
         gap: 24px;
     }
 
+    .cryptobasics-section-1 > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
     .cryptoinfo img {
         height: 220px;
         border-radius: 20px;
@@ -86,5 +92,6 @@
         min-height: 52px;
         font-size: 17px;
         font-weight: 600;
+        margin-bottom: 8px;
     }
 }
