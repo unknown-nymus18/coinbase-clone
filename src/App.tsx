@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { ThemeProvider } from "@coinbase/cds-web/system";
 import { defaultTheme } from "@coinbase/cds-web/themes/defaultTheme";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Explore from "./pages/Explore.js";
-import SignIn from "./pages/SignIn.tsx";
-import SignUp from "./pages/SignUp.tsx";
-import Learn from "./pages/Learn.tsx";
+import Explore from "./pages/Explore";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Learn from "./pages/Learn";
 
 const route = createBrowserRouter([
   { path: "/", element: <Home /> },
