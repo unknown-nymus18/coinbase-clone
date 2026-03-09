@@ -135,6 +135,8 @@
 .mobile-nav-globe,
 .mobile-nav-back,
 .mobile-submenu-list,
+.mobile-submenu-group,
+.mobile-submenu-group-label,
 .mobile-submenu-item,
 .mobile-submenu-icon,
 .mobile-submenu-copy,
@@ -269,6 +271,25 @@
         padding: 24px 20px 40px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-submenu-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-submenu-group + .mobile-submenu-group {
+        margin-top: 20px;
+    }
+
+    .mobile-submenu-group-label {
+        display: block;
+        padding-bottom: 8px;
+        color: #5b616e;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
     }
 
     .mobile-submenu-item {

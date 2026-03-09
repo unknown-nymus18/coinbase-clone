@@ -1,5 +1,4 @@
 import { LogoMark } from "@coinbase/cds-web/icons/LogoMark";
-import { Icon } from "@coinbase/cds-web/icons/Icon";
 import "../../styles/navbar.css";
 import AuthBtn from "../common/AuthBtn";
 import { useState } from "react";
@@ -10,222 +9,25 @@ import DevelopersNavigation from "./navigation/DevelopersNavigaiton";
 import CompanyNavigation from "./navigation/CompanyNavigation";
 import { useNavigate } from "react-router-dom";
 import { SearchBar } from "../common/SearchBar";
+import {
+  NAVIGATION_ROOT_LINKS,
+  type NavigationInput,
+  type NavigationSectionKey,
+} from "./navigation/navigationData";
 
 interface Props {
-  input?:
-    | ""
-    | "individuals"
-    | "businesses"
-    | "institutions"
-    | "developers"
-    | "company";
+  input?: NavigationInput;
 }
 
-type MobileSection = Exclude<Props["input"], "">;
-
-interface MobileRootItem {
-  label: string;
-  section?: MobileSection;
-}
-
-interface MobileSubmenuItem {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const MOBILE_ROOT_LINKS: MobileRootItem[] = [
-  { label: "Cryptocurrencies" },
-  { label: "Individuals", section: "individuals" },
-  { label: "Businesses", section: "businesses" },
-  { label: "Institutions", section: "institutions" },
-  { label: "Developers", section: "developers" },
-  { label: "Company", section: "company" },
-];
-
-const MOBILE_SUBMENU_CONTENT: Record<MobileSection, MobileSubmenuItem[]> = {
-  individuals: [
-    {
-      title: "Buy and sell",
-      description: "Buy, sell, and use crypto",
-      icon: "coinbase",
-    },
-    {
-      title: "Advanced",
-      description: "Professional-grade trading tools",
-      icon: "advancedTradeProduct",
-    },
-    {
-      title: "Base App",
-      description: "Post, earn, trade, and chat, all in one place",
-      icon: "baseSquare",
-    },
-    {
-      title: "Earn",
-      description: "Stake your crypto and earn rewards",
-      icon: "percentage",
-    },
-    {
-      title: "Coinbase One",
-      description: "Get zero trading fees and more",
-      icon: "coinbaseOne",
-    },
-    {
-      title: "Coinbase Wealth",
-      description: "Institutional-grade services for UHNW",
-      icon: "diamond",
-    },
-    {
-      title: "Private Client",
-      description: "For trusts, family offices, UHNWIs",
-      icon: "diamond",
-    },
-    {
-      title: "Credit Card",
-      description: "Earn up to 4% bitcoin back",
-      icon: "paymentCard",
-    },
-  ],
-  businesses: [
-    {
-      title: "Business",
-      description: "Crypto trading and payments for startups and SMBs",
-      icon: "coinbase",
-    },
-    {
-      title: "Payments",
-      description: "The stablecoin payments stack for commerce platforms",
-      icon: "card",
-    },
-    {
-      title: "Asset Listings",
-      description: "List your asset on Coinbase",
-      icon: "assetHubProduct",
-    },
-    {
-      title: "Token Manager",
-      description: "The platform for token distributions, vesting, and lockups",
-      icon: "assetManagementProduct",
-    },
-  ],
-  institutions: [
-    {
-      title: "Trading and Financing",
-      description: "Professional prime brokerage services",
-      icon: "primePoduct",
-    },
-    {
-      title: "Custody",
-      description: "Securely store all your digital assets",
-      icon: "custodyProduct",
-    },
-    {
-      title: "Staking",
-      description: "Explore staking across our products",
-      icon: "percentage",
-    },
-    {
-      title: "Onchain Wallet",
-      description: "Institutional-grade wallet to get onchain",
-      icon: "blockchain",
-    },
-    {
-      title: "Exchange",
-      description: "Spot markets for high-frequency trading",
-      icon: "exchangeProduct",
-    },
-    {
-      title: "International Exchange",
-      description: "Access perpetual futures markets",
-      icon: "globe",
-    },
-    {
-      title: "Derivatives Exchange",
-      description: "Trade an accessible futures market",
-      icon: "derivativesProduct",
-    },
-    {
-      title: "Verified Pools",
-      description: "Transparent, verified liquidity pools",
-      icon: "verifiedPools",
-    },
-  ],
-  developers: [
-    {
-      title: "Payments",
-      description: "Fast and global stablecoin payments with a single integration",
-      icon: "pay",
-    },
-    {
-      title: "Trading",
-      description: "Launch crypto trading and custody for your users",
-      icon: "advancedTradeProduct",
-    },
-    {
-      title: "Wallets",
-      description: "Deploy customizable and scalable wallets for your business",
-      icon: "wallet",
-    },
-    {
-      title: "Stablecoins",
-      description: "Access USDC and Coinbase Custom Stablecoins",
-      icon: "currencies",
-    },
-    {
-      title: "Banks & Brokerages",
-      description: "Secure, regulated offerings for retail and institutional clients",
-      icon: "bank",
-    },
-    {
-      title: "Payment Firms",
-      description: "Near-instant, low-cost, global payment rails",
-      icon: "card",
-    },
-    {
-      title: "Startups",
-      description: "Launch your business with the world's leader in crypto",
-      icon: "api",
-    },
-  ],
-  company: [
-    {
-      title: "About",
-      description: "Powering the crypto economy",
-      icon: "error",
-    },
-    {
-      title: "Affiliates",
-      description: "Help introduce the world to crypto",
-      icon: "affiliates",
-    },
-    {
-      title: "Blog",
-      description: "Read the latest from Coinbase",
-      icon: "blog",
-    },
-    {
-      title: "Careers",
-      description: "Work with us",
-      icon: "briefcase",
-    },
-    {
-      title: "Support",
-      description: "Find answers to your questions",
-      icon: "chatBubble",
-    },
-    {
-      title: "Security",
-      description: "The most trusted and secure platform",
-      icon: "shield",
-    },
-  ],
-};
+type MobileSection = NavigationSectionKey;
 
 function NavigationBar() {
   const [showBottomNav, setShowBottomNav] = useState(false);
   const [link, setLink] = useState<Props["input"]>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSection, setMobileSection] = useState<MobileSection | null>(null);
+  const [mobileSection, setMobileSection] = useState<MobileSection | null>(
+    null,
+  );
   const navigate = useNavigate();
 
   function onHover(event: React.MouseEvent<HTMLLIElement, MouseEvent>) {
@@ -299,29 +101,20 @@ function NavigationBar() {
             )}
             <nav>
               <ul>
-                <li onMouseOver={onHover} value={""}>
-                  <a href="#">Cryptocurrencies</a>
-                </li>
-                <li onMouseOver={onHover} value="individuals">
-                  <a href="#">Individuals</a>
-                </li>
-                <li onMouseOver={onHover} value="businesses">
-                  <a href="#">Businesses</a>
-                </li>
-                <li onMouseOver={onHover} value="institutions">
-                  <a href="#">Institutions</a>
-                </li>
-                <li onMouseOver={onHover} value="developers">
-                  <a href="#">Developers</a>
-                </li>
-                <li onMouseOver={onHover} value="company">
-                  <a href="#">Company</a>
-                </li>
+                {NAVIGATION_ROOT_LINKS.map((item) => (
+                  <li
+                    key={item.label}
+                    onMouseOver={onHover}
+                    value={item.section ?? ""}
+                  >
+                    <a href={item.href ?? "#"}>{item.label}</a>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
           <div className="auth-section">
-            <SearchBar></SearchBar>
+            <SearchBar />
             <AuthBtn
               className="navbar-signin-btn"
               onClick={() => {
@@ -404,35 +197,22 @@ function NavigationBar() {
         {mobileMenuOpen && (
           <div className="mobile-nav-menu">
             {mobileSection ? (
-              <div className="mobile-submenu-list">
-                {MOBILE_SUBMENU_CONTENT[mobileSection].map((item) => (
-                  <button
-                    key={item.title}
-                    type="button"
-                    className="mobile-submenu-item"
-                  >
-                    <span className="mobile-submenu-icon">
-                      <Icon name={item.icon as never} size="m" />
-                    </span>
-                    <span className="mobile-submenu-copy">
-                      <span className="mobile-submenu-title">{item.title}</span>
-                      <span className="mobile-submenu-description">
-                        {item.description}
-                      </span>
-                    </span>
-                  </button>
-                ))}
-              </div>
+              <MobileNavigationSection
+                section={mobileSection}
+                onNavigate={closeMobileMenu}
+              />
             ) : (
               <>
                 <div className="mobile-nav-links">
-                  {MOBILE_ROOT_LINKS.map((item) =>
+                  {NAVIGATION_ROOT_LINKS.map((item) =>
                     item.section ? (
                       <button
                         key={item.label}
                         type="button"
                         className="mobile-nav-link"
-                        onClick={() => openMobileSection(item.section!)}
+                        onClick={() =>
+                          openMobileSection(item.section as MobileSection)
+                        }
                       >
                         <span>{item.label}</span>
                         <span className="mobile-nav-chevron" aria-hidden="true">
@@ -454,13 +234,14 @@ function NavigationBar() {
                         </span>
                       </button>
                     ) : (
-                      <button
+                      <a
                         key={item.label}
-                        type="button"
+                        href={item.href ?? "#"}
                         className="mobile-nav-link no-chevron"
+                        onClick={closeMobileMenu}
                       >
                         <span>{item.label}</span>
-                      </button>
+                      </a>
                     ),
                   )}
                 </div>
@@ -546,18 +327,35 @@ function NavigationBarBottom({ input }: Props) {
       return null;
     case "individuals":
       return <IndividualNavigation />;
-
     case "businesses":
       return <BusinessNavigation />;
-
     case "institutions":
       return <InstitutionNavigation />;
-
     case "developers":
       return <DevelopersNavigation />;
-
     case "company":
       return <CompanyNavigation />;
+  }
+}
+
+function MobileNavigationSection({
+  section,
+  onNavigate,
+}: {
+  section: MobileSection;
+  onNavigate: () => void;
+}) {
+  switch (section) {
+    case "individuals":
+      return <IndividualNavigation variant="mobile" onNavigate={onNavigate} />;
+    case "businesses":
+      return <BusinessNavigation variant="mobile" onNavigate={onNavigate} />;
+    case "institutions":
+      return <InstitutionNavigation variant="mobile" onNavigate={onNavigate} />;
+    case "developers":
+      return <DevelopersNavigation variant="mobile" onNavigate={onNavigate} />;
+    case "company":
+      return <CompanyNavigation variant="mobile" onNavigate={onNavigate} />;
   }
 }
 
