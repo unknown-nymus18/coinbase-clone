@@ -25,7 +25,6 @@ type MobileSection = Exclude<Props["input"], "">;
 
 interface MobileRootItem {
   label: string;
-  href?: string;
   section?: MobileSection;
 }
 
@@ -33,11 +32,10 @@ interface MobileSubmenuItem {
   title: string;
   description: string;
   icon: string;
-  href?: string;
 }
 
 const MOBILE_ROOT_LINKS: MobileRootItem[] = [
-  { label: "Cryptocurrencies", href: "/cryptocurrencies" },
+  { label: "Cryptocurrencies" },
   { label: "Individuals", section: "individuals" },
   { label: "Businesses", section: "businesses" },
   { label: "Institutions", section: "institutions" },
@@ -408,11 +406,10 @@ function NavigationBar() {
             {mobileSection ? (
               <div className="mobile-submenu-list">
                 {MOBILE_SUBMENU_CONTENT[mobileSection].map((item) => (
-                  <a
+                  <button
                     key={item.title}
-                    href={item.href ?? "#"}
+                    type="button"
                     className="mobile-submenu-item"
-                    onClick={closeMobileMenu}
                   >
                     <span className="mobile-submenu-icon">
                       <Icon name={item.icon as never} size="m" />
@@ -423,7 +420,7 @@ function NavigationBar() {
                         {item.description}
                       </span>
                     </span>
-                  </a>
+                  </button>
                 ))}
               </div>
             ) : (
@@ -457,14 +454,13 @@ function NavigationBar() {
                         </span>
                       </button>
                     ) : (
-                      <a
+                      <button
                         key={item.label}
-                        href={item.href}
+                        type="button"
                         className="mobile-nav-link no-chevron"
-                        onClick={closeMobileMenu}
                       >
                         <span>{item.label}</span>
-                      </a>
+                      </button>
                     ),
                   )}
                 </div>
