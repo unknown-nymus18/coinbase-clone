@@ -1,0 +1,83 @@
+.hero3 {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    padding: 40px;
+    align-items: center;
+}
+
+.hero3-section-1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero3-section-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero3-title {
+    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    color: #050f19;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.hero3-section-1 img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 50px;
+    align-self: center;
+    justify-self: center;
+    background-color: rgb(238, 240, 243);
+}
+
+@media (max-width: 968px) {
+    .hero3 {
+        flex-direction: column;
+        gap: 24px;
+        padding: 28px 14px;
+        align-items: stretch;
+    }
+
+    .hero3-section-1,
+    .hero3-section-2 {
+        width: 100%;
+    }
+
+    .hero3-section-1 {
+        order: 2;
+    }
+
+    .hero3-section-2 {
+        order: 1;
+    }
+
+    .hero3-title {
+        font-size: clamp(2.35rem, 10vw, 3.2rem);
+        line-height: 1.04;
+        letter-spacing: -1.5px;
+        margin-bottom: 14px;
+    }
+
+    .hero3-section-1 img,
+    #take-control-of-money {
+        max-width: none;
+        border-radius: 28px;
+    }
+
+    .hero3 .authbtn {
+        width: 100%;
+        max-width: none;
+        min-height: 52px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+}

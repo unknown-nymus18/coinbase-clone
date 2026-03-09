@@ -1,0 +1,38 @@
+.authbtn {
+    align-items: center;
+    border-radius: 56px;  /* Added px unit */
+    border-width: 0.8px;
+    padding: 8px 24px;   /* Added vertical padding */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    max-width: 200px;
+}
+
+.secondary {
+    background-color: rgb(0, 82, 255);
+    color: white;
+}
+
+.secondary:hover {
+    background-color: rgb(0, 70, 220);
+}
+
+.primary {
+    background-color: rgb(238, 240, 243);
+    color: black;
+}
+
+.primary:hover {
+    background-color: rgb(220, 222, 225);
+}
+
+.black{
+    background-color: rgb(0, 0, 0);
+    color:white
+}
+
+.black{}

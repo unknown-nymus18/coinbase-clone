@@ -1,0 +1,187 @@
+.hero1 {
+    display: flex;
+    flex-direction: row;
+    min-height: 85vh;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    gap: 60px;
+}
+
+#take-control-of-money{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 50px;
+    align-self: center;
+    justify-self: center;
+    background-color: white !important;
+}
+
+.hero1-left {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero1-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.phone-mockup {
+    height: 100%;
+    width: 100%;
+}
+
+.phone-mockup p {
+    margin: 16px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #5b616e;
+}
+
+.phone-image {
+    width: 100%;
+    height: auto;
+    border-radius: 24px 24px 0 0;
+    display: block;
+}
+
+.hero1-content {
+    max-width: 500px;
+}
+
+.hero1-title {
+    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 64px;
+    font-weight: 500;
+    color: #050f19;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.hero1-subtitle {
+    font-size: 1.15rem;
+    color: #5b616e;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.hero1-signup {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.hero1-email-input {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 56px;
+    border: 1px solid #d1d5db;
+    font-size: 16px;
+    background: white;
+    outline: none;
+    transition: all 0.2s ease;
+    color: #050f19;
+}
+
+.hero1-email-input:focus {
+    border-color: #1652f0;
+    box-shadow: 0 0 0 2px rgba(22, 82, 240, 0.15);
+}
+
+.hero1-email-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .hero1 {
+        flex-direction: column;
+        min-height: auto;
+        padding: 22px 14px 28px;
+        gap: 22px;
+    }
+
+    .hero1-left {
+        order: 2;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .hero1-right {
+        order: 1;
+        padding: 6px 0 0;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .hero1-content {
+        max-width: none;
+    }
+
+    .hero1-title {
+        font-size: clamp(3.15rem, 12vw, 4.25rem);
+        line-height: 0.98;
+        letter-spacing: -2px;
+        margin-bottom: 14px;
+    }
+
+    .hero1-subtitle {
+        font-size: 1rem;
+        line-height: 1.45;
+        color: #050f19;
+        margin-bottom: 18px;
+    }
+
+    .hero1-signup {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .hero1-email-input {
+        width: 100%;
+        min-height: 56px;
+        padding: 16px 16px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .hero1-signup-btn {
+        width: 100%;
+        max-width: none;
+        min-height: 54px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .phone-mockup {
+        border-radius: 0;
+        overflow: visible;
+        background: transparent;
+        padding: 0;
+    }
+
+    .phone-image {
+        border-radius: 28px;
+    }
+
+    .phone-mockup p {
+        padding: 14px 0 18px;
+        margin: 0;
+    }
+}
+
+    

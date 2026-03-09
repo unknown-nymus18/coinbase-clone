@@ -1,0 +1,350 @@
+.learn {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.learn h1 {
+    font-size: 3rem;
+    font-weight: 650;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.learn p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.learn-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.featured-section h2,
+.popular-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+}
+
+.featured-video {
+    background: #fff;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    position: relative;
+    background: #e2e8f0;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.play-button:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.play-icon {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 3px;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.video-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.4;
+}
+
+.video-info p {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+}
+
+.popular-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.article-item:last-child {
+    border-bottom: none;
+}
+
+.article-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.article-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.article-title:hover {
+    color: #0052ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .learn-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .learn h1 {
+        font-size: 2.5rem;
+    }
+    
+    .learn p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Category Cards Section */
+.categories-section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+}
+
+.category-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.category-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.category-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+
+
+.category-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0 0 0.25rem 0;
+}
+
+.see-more {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.see-more:hover {
+    color: #0052ff;
+}
+
+/* Mobile responsive for category cards */
+@media (max-width: 768px) {
+    .category-cards {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* What is section */
+.what-is {
+    background-color: #f0f2f5;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+}
+
+.what-is-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1000px;
+}
+
+.what-is-tag {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+}
+
+.what-is-tag:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    color:blue;
+}
+
+.what-is-see-more {
+    margin-top: 40px;
+    padding: 16px 32px;
+    background-color: #0052ff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.what-is-see-more:hover {
+    background-color: #003ecf;
+}
+
+.tips-and-tutorials{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tips-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+
+.tips-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.tips-card-img {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.tips-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tips-card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.tips-card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
+    line-height: 1.3;
+}
+
+a.tips-card-title.video-link {
+    color: #0052ff;
+    text-decoration: none;
+}
+
+a.tips-card-title.video-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .tips-content {
+        grid-template-columns: 1fr;
+    }
+}

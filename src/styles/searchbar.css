@@ -1,0 +1,337 @@
+.search-system-container {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.search-system-container.is-closed {
+  width: 44px;
+  flex: 0 0 44px;
+}
+
+.search-system-container.is-open {
+  width: min(420px, 28vw);
+  flex: 0 1 min(420px, 28vw);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  transition:
+    width 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-bar.collapsed {
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+.search-bar.expanded {
+  width: min(420px, 28vw);
+  height: 46px;
+  padding: 0 14px;
+  border: 2px solid #1652f0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(22, 82, 240, 0.08);
+}
+
+.search-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #1652f0;
+}
+
+.search-bar.collapsed .search-icon-wrapper {
+  margin-right: 0;
+}
+
+.search-bar.expanded .search-icon-wrapper {
+  margin-right: 10px;
+}
+
+.search-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  line-height: 1;
+  color: #111827;
+}
+
+.search-input-field::placeholder {
+  color: #6b7280;
+}
+
+.search-bar.collapsed .search-input-field {
+  width: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.search-dropdown-card {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  width: min(560px, calc(100vw - 40px));
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.18);
+  border: 1px solid #e5e7eb;
+  z-index: 1100;
+  overflow: hidden;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.category-pills {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.category-pills::-webkit-scrollbar {
+  display: none;
+}
+
+.pill {
+  border: none;
+  border-radius: 999px;
+  background: #eef0f3;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pill:hover {
+  transform: translateY(-1px);
+}
+
+.pill.active {
+  background: #222837;
+  color: #ffffff;
+}
+
+.asset-list-container {
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 6px 10px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af transparent;
+}
+
+.asset-list-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.asset-list-container::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+}
+
+.asset-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 1.2fr) minmax(120px, 0.8fr) minmax(120px, 0.8fr);
+  gap: 10px;
+  align-items: center;
+  padding: 14px 6px;
+}
+
+.asset-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.asset-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.asset-names {
+  min-width: 0;
+}
+
+.primary-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.secondary-name {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.asset-market-data {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #111827;
+}
+
+.vol-text,
+.price-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.fund-text {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #111827;
+}
+
+.asset-price-section {
+  text-align: right;
+}
+
+.change-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+.trend-arrow {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.search-empty-state {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 15px;
+  color: #64748b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .search-system-container.is-open,
+  .search-bar.expanded {
+    width: min(360px, 26vw);
+    flex-basis: min(360px, 26vw);
+  }
+}
+
+@media (max-width: 860px) {
+  .search-dropdown-card {
+    right: -24px;
+    width: min(500px, calc(100vw - 24px));
+  }
+
+  .asset-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px 10px;
+  }
+
+  .asset-market-data,
+  .asset-price-section {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-system-container {
+    position: static;
+  }
+
+  .search-system-container.is-open {
+    width: min(200px, calc(100vw - 188px));
+    flex: 0 1 min(200px, calc(100vw - 188px));
+  }
+
+  .search-bar.expanded {
+    width: min(200px, calc(100vw - 188px));
+    height: 42px;
+    padding: 0 12px;
+  }
+
+  .search-dropdown-card {
+    position: fixed;
+    top: 76px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: calc(100vh - 92px);
+    border-radius: 18px;
+  }
+
+  .category-pills {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .asset-list-container {
+    max-height: calc(100vh - 180px);
+    padding: 4px 8px 12px;
+  }
+
+  .pill {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .search-input-field {
+    font-size: 14px;
+  }
+
+  .primary-name {
+    font-size: 12px;
+  }
+
+  .secondary-name,
+  .asset-market-data,
+  .vol-text,
+  .price-text,
+  .fund-text,
+  .change-text {
+    font-size: 11px;
+  }
+}

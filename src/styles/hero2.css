@@ -1,0 +1,256 @@
+.hero2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(520px, 0.95fr);
+  gap: 56px;
+  align-items: center;
+  padding: 56px 36px;
+  background: #f3f5f7;
+}
+
+.hero2-copy {
+  max-width: 680px;
+}
+
+.hero2-copy h2 {
+  margin: 0 0 24px;
+  color: #050f19;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+}
+
+.hero2-copy p {
+  margin: 0 0 32px;
+  color: #5b616e;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.hero2-button {
+  min-height: 56px;
+  padding: 0 24px 0 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  gap: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #05070a 0%, #111827 100%);
+  box-shadow: 0 12px 28px rgba(5, 15, 25, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero2-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(5, 15, 25, 0.22);
+}
+
+.hero2-button-label {
+  letter-spacing: -0.01em;
+}
+
+.hero2-button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hero2-market-card {
+  background: #05070a;
+  border-radius: 40px;
+  padding: 24px 28px 28px;
+  color: #ffffff;
+  min-height: 640px;
+  box-shadow: 0 24px 60px rgba(5, 15, 25, 0.18);
+}
+
+.hero2-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.hero2-tab {
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.hero2-tab.active {
+  background: #242933;
+}
+
+.hero2-tab:not(.active) {
+  opacity: 0.92;
+}
+
+.hero2-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero2-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 4px;
+}
+
+.hero2-asset {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.hero2-asset-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hero2-asset-name {
+  color: #ffffff;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.hero2-price-block {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.hero2-price {
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero2-change {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.hero2-change.positive {
+  color: #16c784;
+}
+
+.hero2-change.neutral {
+  color: #8f98a3;
+}
+
+@media (max-width: 1200px) {
+  .hero2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .hero2-copy {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero2 {
+    gap: 24px;
+    padding: 30px 14px;
+  }
+
+  .hero2-copy h2 {
+    margin-bottom: 14px;
+    font-size: clamp(2.5rem, 11vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -1.6px;
+  }
+
+  .hero2-copy p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero2-button {
+    width: 100%;
+    max-width: none;
+    min-height: 52px;
+    padding: 0 24px;
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  .hero2-market-card {
+    border-radius: 28px;
+    padding: 18px 16px 20px;
+    min-height: auto;
+  }
+
+  .hero2-tabs {
+    gap: 10px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .hero2-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero2-tab {
+    padding: 12px 18px;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .hero2-row {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .hero2-asset {
+    gap: 12px;
+  }
+
+  .hero2-asset-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 1.15rem;
+  }
+
+  .hero2-asset-name {
+    font-size: 1.45rem;
+  }
+
+  .hero2-price {
+    font-size: 1.05rem;
+  }
+
+  .hero2-change {
+    font-size: 0.85rem;
+  }
+}

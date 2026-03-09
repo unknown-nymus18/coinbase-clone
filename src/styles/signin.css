@@ -1,0 +1,223 @@
+
+.signin-page {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: white;
+  position: relative;
+}
+
+.signin-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px 24px;
+  margin-top: 3rem;
+}
+
+.coinbase-logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: white;
+}
+
+.coinbase-logo svg {
+  fill: white !important;
+  color: white !important;
+}
+
+.coinbase-logo * {
+  fill: white !important;
+  color: white !important;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.signin-form h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+
+  text-align: start;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.email-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.email-input::placeholder {
+  color: #666;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #0052ff;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #0052ff;
+  color: #fff;
+  border: none;
+  border-radius: 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  /* margin-bottom: 1.5rem; */
+  transition: background-color 0.2s ease;
+}
+
+.continue-btn:hover {
+  background: #0040cc;
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #333;
+}
+
+.divider span {
+  background: #000;
+  color: #666;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgb(40, 43, 49);
+  color: #fff;
+  border: none;
+  border-radius: 26px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background: #444;
+  border-color: #555;
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #4285f4;
+  color: white;
+  border-radius: 2px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: rgb(0, 82, 255);
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.privacy-text {
+  text-align: center;
+  color: rgb(138, 145, 158);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .signin-container {
+    padding: 1.5rem;
+  }
+  
+  .signin-form h1 {
+    font-size: 1.75rem;
+  }
+}
