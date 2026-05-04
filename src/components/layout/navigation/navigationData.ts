@@ -46,7 +46,7 @@ export interface NavigationRootLink {
 }
 
 export const NAVIGATION_ROOT_LINKS: NavigationRootLink[] = [
-  { label: "Cryptocurrencies", href: "/cryptocurrencies" },
+  { label: "Cryptocurrencies",  },
   { label: "Individuals", section: "individuals" },
   { label: "Businesses", section: "businesses" },
   { label: "Institutions", section: "institutions" },
