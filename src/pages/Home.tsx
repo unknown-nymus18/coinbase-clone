@@ -31,6 +31,13 @@ function Home() {
       .catch((error) => {
         console.error("Error fetching crypto data:", error);
       });
+
+    Api.fetchGainers().then((response) => {
+      console.log("gainers", response);
+    });
+    Api.fetchNewCrypto().then((response) => {
+      console.log("new", response);
+    });
   }, []);
   return (
     <>

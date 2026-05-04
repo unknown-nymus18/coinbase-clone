@@ -135,7 +135,7 @@ function NavigationBar({ user, onLogout }: Props) {
                 <AuthBtn
                   className="navbar-signup-btn"
                   onClick={() => {
-                    navigate("/signin");
+                    navigate("/signup");
                   }}
                   variant="secondary"
                 >

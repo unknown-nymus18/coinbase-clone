@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/hero2.css";
 import AuthBtn from "../common/AuthBtn";
+import Api from "../../services/api";
 
 type Hero2Tab = "tradable" | "topGainers" | "newOnCoinbase";
 
@@ -175,9 +176,47 @@ const TAB_LABELS: Record<Hero2Tab, string> = {
 
 function Hero2() {
   const [activeTab, setActiveTab] = useState<Hero2Tab>("tradable");
+  const [marketData, setMarketData] = useState<Record<Hero2Tab, AssetRow[]>>(HERO2_DATA);
   const navigate = useNavigate();
 
-  const activeAssets = useMemo(() => HERO2_DATA[activeTab], [activeTab]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [tradable, gainers, newCrypto] = await Promise.all([
+          Api.fetchCrypto(),
+          Api.fetchGainers(),
+          Api.fetchNewCrypto(),
+        ]);
+
+        const mapAsset = (asset: any): AssetRow => ({
+          name: asset.name || "Unknown",
+          symbol: asset.symbol || "",
+          price: typeof asset.price === 'number' 
+            ? `GHS ${asset.price.toLocaleString()}` 
+            : asset.price || "GHS 0.00",
+          change: asset.change || (asset.price_change_percentage_24h 
+            ? `${asset.price_change_percentage_24h > 0 ? "↗" : "↘"} ${Math.abs(asset.price_change_percentage_24h).toFixed(2)}%`
+            : "--"),
+          changeType: (asset.changeType === "positive" || asset.price_change_percentage_24h > 0) 
+            ? "positive" 
+            : "neutral",
+          color: asset.color || "#000",
+        });
+
+        setMarketData({
+          tradable: tradable.map(mapAsset),
+          topGainers: gainers.map(mapAsset),
+          newOnCoinbase: newCrypto.map(mapAsset),
+        });
+      } catch (error) {
+        console.error("Error fetching market data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const activeAssets = useMemo(() => marketData[activeTab], [activeTab, marketData]);
 
   return (
     <section className="hero2">

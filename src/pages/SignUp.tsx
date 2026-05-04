@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@coinbase/cds-web/icons/Icon";
 import "../styles/signin.css";
 import { LogoMark } from "@coinbase/cds-web/icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import Api from "../services/api";
 
 function SignUp() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+
+  const handleSignUp = () => {
+    Api.signUp(name, email, password)
+      .then((response) => {
+        console.log(response);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error signing up:", error);
+      });
+  };
+
   return (
     <div className="signin-page">
       <div className="coinbase-logo">
@@ -20,16 +37,39 @@ function SignUp() {
           </p>
 
           <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+              className="email-input"
+            />
+            <div style={{ height: 10 }}></div>
+
             <label htmlFor="email">Email</label>
             <input
               type="email"
-              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
+              className="email-input"
+            />
+            <div style={{ height: 10 }}></div>
+
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your password"
               className="email-input"
             />
           </div>
 
-          <button className="continue-btn">Continue</button>
+          <button className="continue-btn" onClick={handleSignUp}>
+            Continue
+          </button>
 
           <div className="divider">
             <span>OR</span>

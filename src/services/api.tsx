@@ -3,7 +3,53 @@ class Api {
 
   static async fetchCrypto() {
     try {
-      const response = await fetch(`${this.baseUrl}/crypto`, {
+      const response = await fetch(`${this.baseUrl}/crypto/`, {
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("API Error:", error);
+      throw error;
+    }
+  }
+
+  static async fetchGainers() {
+    try {
+      const response = await fetch(`${this.baseUrl}/crypto/gainers/`, {
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("API Error:", error);
+      throw error;
+    }
+  }
+
+  static async fetchNewCrypto() {
+    try {
+      const response = await fetch(`${this.baseUrl}/crypto/new/`, {
         method: "GET",
         mode: "cors",
         credentials: "include",
@@ -31,6 +77,30 @@ class Api {
         mode: "cors",
         credentials: "include",
         body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("API Error:", error);
+      throw error;
+    }
+  }
+
+  static async signUp(name: string, email: string, password: string) {
+    try {
+      const response = await fetch(`${this.baseUrl}/register`, {
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+        body: JSON.stringify({ name, email, password }),
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
