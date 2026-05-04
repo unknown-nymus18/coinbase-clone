@@ -144,7 +144,7 @@ function NavigationBar({ user, onLogout }: Props) {
               </>
             ) : (
               <>
-                <p>{user.name}</p>
+                <p className="navbar-username">{user.name}</p>
                 <AuthBtn
                   className="navbar-signup-btn"
                   onClick={async () => {
@@ -320,16 +320,36 @@ function NavigationBar({ user, onLogout }: Props) {
                       />
                     </svg>
                   </button>
-                  <button
-                    type="button"
-                    className="mobile-nav-signin"
-                    onClick={() => {
-                      closeMobileMenu();
-                      navigate("/signin");
-                    }}
-                  >
-                    Sign in
-                  </button>
+                  {!user ? (
+                    <button
+                      type="button"
+                      className="mobile-nav-signin"
+                      onClick={() => {
+                        closeMobileMenu();
+                        navigate("/signin");
+                      }}
+                    >
+                      Sign in
+                    </button>
+                  ) : (
+                    <div className="mobile-user-actions">
+                      <span className="mobile-user-name">{user.name}</span>
+                      <button
+                        type="button"
+                        className="mobile-nav-signin"
+                        onClick={async () => {
+                          closeMobileMenu();
+                          await Api.logout();
+                          if (onLogout) {
+                            onLogout();
+                          }
+                          navigate("/");
+                        }}
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
                 </div>
               </>
             )}

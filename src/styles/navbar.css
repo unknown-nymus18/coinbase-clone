@@ -102,6 +102,13 @@
     gap: 16px;
 }
 
+.navbar-username {
+    font-weight: 600;
+    font-size: 14px;
+    color: #050f19;
+    margin: 0;
+}
+
 .navbar-signup-btn {
     min-height: 44px;
 }
@@ -161,7 +168,8 @@
     }
 
     .navbar nav,
-    .navbar-signin-btn {
+    .navbar-signin-btn,
+    .navbar-username {
         display: none;
     }
 
@@ -363,6 +371,20 @@
         font-size: 18px;
         font-weight: 600;
         cursor: pointer;
+    }
+
+    .mobile-user-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+    }
+
+    .mobile-user-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: #050f19;
+        margin-right: auto;
     }
 
     .nav-overlay {
