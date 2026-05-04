@@ -23,21 +23,6 @@ function Home() {
       .catch(() => {
         setUser(null);
       });
-
-    Api.fetchCrypto()
-      .then((data) => {
-        console.log("Crypto data:", data);
-      })
-      .catch((error) => {
-        console.error("Error fetching crypto data:", error);
-      });
-
-    Api.fetchGainers().then((response) => {
-      console.log("gainers", response);
-    });
-    Api.fetchNewCrypto().then((response) => {
-      console.log("new", response);
-    });
   }, []);
   return (
     <>
