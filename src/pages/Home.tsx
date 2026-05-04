@@ -41,7 +41,7 @@ function Home() {
         </div>
       )} */}
       <CloneBanner
-        text={"This is a student product and is not affiliated with Coinbase"}
+        text={"This is a student project and is not affiliated with Coinbase"}
       ></CloneBanner>
       <Hero1></Hero1>
       <Hero2></Hero2>
