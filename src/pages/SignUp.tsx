@@ -2,12 +2,15 @@ import React from "react";
 import { Icon } from "@coinbase/cds-web/icons/Icon";
 import "../styles/signin.css";
 import { LogoMark } from "@coinbase/cds-web/icons";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
     <div className="signin-page">
       <div className="coinbase-logo">
-        <LogoMark foreground={false}></LogoMark>
+        <Link to={"/"}>
+          <LogoMark foreground={false}></LogoMark>
+        </Link>
       </div>
       <div className="signin-container">
         <div className="signin-form">

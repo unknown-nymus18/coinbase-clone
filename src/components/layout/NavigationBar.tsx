@@ -14,14 +14,21 @@ import {
   type NavigationInput,
   type NavigationSectionKey,
 } from "./navigation/navigationData";
+import Api from "../../services/api";
 
+interface User {
+  name: String;
+  email: String;
+}
 interface Props {
   input?: NavigationInput;
+  user?: User;
+  onLogout?: () => void;
 }
 
 type MobileSection = NavigationSectionKey;
 
-function NavigationBar() {
+function NavigationBar({ user, onLogout }: Props) {
   const [showBottomNav, setShowBottomNav] = useState(false);
   const [link, setLink] = useState<Props["input"]>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -115,23 +122,44 @@ function NavigationBar() {
           </div>
           <div className="auth-section">
             <SearchBar />
-            <AuthBtn
-              className="navbar-signin-btn"
-              onClick={() => {
-                navigate("/signin");
-              }}
-            >
-              Sign in
-            </AuthBtn>
-            <AuthBtn
-              className="navbar-signup-btn"
-              onClick={() => {
-                navigate("/signin");
-              }}
-              variant="secondary"
-            >
-              Sign up
-            </AuthBtn>
+            {!user ? (
+              <>
+                <AuthBtn
+                  className="navbar-signin-btn"
+                  onClick={() => {
+                    navigate("/signin");
+                  }}
+                >
+                  Sign in
+                </AuthBtn>
+                <AuthBtn
+                  className="navbar-signup-btn"
+                  onClick={() => {
+                    navigate("/signin");
+                  }}
+                  variant="secondary"
+                >
+                  Sign up
+                </AuthBtn>
+              </>
+            ) : (
+              <>
+                <p>{user.name}</p>
+                <AuthBtn
+                  className="navbar-signup-btn"
+                  onClick={async () => {
+                    await Api.logout();
+                    if (onLogout) {
+                      onLogout();
+                    }
+                    navigate("/");
+                  }}
+                  variant="secondary"
+                >
+                  Logout
+                </AuthBtn>
+              </>
+            )}
             <button
               type="button"
               className="mobile-menu-toggle"
