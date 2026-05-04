@@ -14,7 +14,7 @@ function SignUp() {
   const handleSignUp = () => {
     Api.signUp(name, email, password)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         navigate("/");
       })
       .catch((error) => {
@@ -88,13 +88,14 @@ function SignUp() {
           </div>
 
           <div className="signup-link">
-            Don't have an account? <a href="/signup">Sign up</a>
+            Don't have an account? <a href="/signin">Sign in</a>
           </div>
 
           <div className="privacy-text">
             Not your device? Use a private window. See our Privacy Policy for
             more info.
           </div>
+          <p>Demo app – do not use your real password</p>
         </div>
       </div>
     </div>

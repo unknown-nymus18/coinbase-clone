@@ -4,6 +4,7 @@ import "../styles/signin.css";
 import { LogoMark } from "@coinbase/cds-web/icons";
 import { Link, useNavigate } from "react-router-dom";
 import Api from "../services/api";
+import CloneBanner from "../components/common/cloneBanner";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function SignIn() {
       setError("");
       Api.login(email, password)
         .then((response) => {
-          console.log("Login successful:", response);
+          // console.log("Login successful:", response);
           navigate("/");
         })
         .catch((err) => {
@@ -110,6 +111,7 @@ function SignIn() {
                 Not your device? Use a private window. See our Privacy Policy
                 for more info.
               </div>
+              <p>Demo app – do not use your real password</p>
             </>
           ) : null}
         </div>

@@ -10,6 +10,7 @@ import Hero6 from "../components/layout/Hero6";
 import NavigationBar from "../components/layout/NavigationBar";
 import "../styles/navbar.css";
 import Api from "../services/api";
+import CloneBanner from "../components/common/cloneBanner";
 
 function Home() {
   const [user, setUser] = useState<any>(null);
@@ -18,7 +19,7 @@ function Home() {
     Api.getProfile()
       .then((userData) => {
         setUser(userData);
-        console.log(userData);
+        // console.log(userData);
       })
       .catch(() => {
         setUser(null);
@@ -39,6 +40,9 @@ function Home() {
           <h2>Welcome back, {user.name}!</h2>
         </div>
       )} */}
+      <CloneBanner
+        text={"This is a student product and is not affiliated with Coinbase"}
+      ></CloneBanner>
       <Hero1></Hero1>
       <Hero2></Hero2>
       <Hero3></Hero3>
@@ -47,6 +51,11 @@ function Home() {
       <CryptoBasics></CryptoBasics>
       <Hero6></Hero6>
       <Footer></Footer>
+      <CloneBanner
+        text={
+          "This is a demo project and users should not enter real personal info"
+        }
+      ></CloneBanner>
     </>
   );
 }
