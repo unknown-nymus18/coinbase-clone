@@ -10,8 +10,13 @@ import SortingTable from "../components/crypto/SortingTable";
 import { HeroSquare } from "@coinbase/cds-web/illustrations/HeroSquare";
 import AuthBtn from "../components/common/AuthBtn";
 import { Pictogram } from "@coinbase/cds-web/illustrations/Pictogram";
+import CloneBanner from "../components/common/cloneBanner";
 
-function Explore() {
+interface Props {
+  user: any;
+  onLogout: () => void;
+}
+function Explore({ user, onLogout }: Props) {
   const marketStats = [
     {
       title: "Total market cap",
@@ -58,8 +63,11 @@ function Explore() {
   ];
   return (
     <>
-      <NavigationBar></NavigationBar>
+      <NavigationBar user={user} onLogout={onLogout}></NavigationBar>
       <div className="navbar-spacer"></div>
+      <CloneBanner
+        text={"This is a student project and is not affiliated with Coinbase"}
+      ></CloneBanner>
       <div className="explore">
         <section className="section-1">
           <div className="crypto">
@@ -144,6 +152,11 @@ function Explore() {
         </section>
       </div>
       <Footer></Footer>
+      <CloneBanner
+        text={
+          "This is a demo project and users should not enter real personal info"
+        }
+      ></CloneBanner>
     </>
   );
 }

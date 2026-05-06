@@ -161,7 +161,7 @@ class Api {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        return {error: true, status: response.status};
       }
 
       return await response.json();

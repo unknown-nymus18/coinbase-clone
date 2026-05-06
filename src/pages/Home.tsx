@@ -12,22 +12,17 @@ import "../styles/navbar.css";
 import Api from "../services/api";
 import CloneBanner from "../components/common/cloneBanner";
 
-function Home() {
-  const [user, setUser] = useState<any>(null);
+interface HomeProps {
+  user: any;
+  onLogout: () => void;
+}
 
-  useEffect(() => {
-    Api.getProfile()
-      .then((userData) => {
-        setUser(userData);
-        // console.log(userData);
-      })
-      .catch(() => {
-        setUser(null);
-      });
-  }, []);
+function Home({ user, onLogout }: HomeProps) {
+  // const [user, setUser] = useState<any>(null);
+
   return (
     <>
-      <NavigationBar user={user} onLogout={() => setUser(null)}></NavigationBar>
+      <NavigationBar user={user} onLogout={onLogout}></NavigationBar>
       <div className="navbar-spacer"></div>
       {/* {user && (
         <div

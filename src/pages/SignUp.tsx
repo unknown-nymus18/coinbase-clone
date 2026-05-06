@@ -5,7 +5,11 @@ import { LogoMark } from "@coinbase/cds-web/icons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Api from "../services/api";
 
-function SignUp() {
+interface Props {
+  onLogin?: () => void;
+}
+
+function SignUp({ onLogin }: Props) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +18,7 @@ function SignUp() {
   const handleSignUp = () => {
     Api.signUp(name, email, password)
       .then((response) => {
+        if (onLogin) onLogin();
         // console.log(response);
         navigate("/");
       })

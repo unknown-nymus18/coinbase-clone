@@ -7,7 +7,7 @@ import BusinessNavigation from "./navigation/BusinessNavigation";
 import InstitutionNavigation from "./navigation/InstitutionNavigation";
 import DevelopersNavigation from "./navigation/DevelopersNavigaiton";
 import CompanyNavigation from "./navigation/CompanyNavigation";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchBar } from "../common/SearchBar";
 import {
   NAVIGATION_ROOT_LINKS,
@@ -103,7 +103,9 @@ function NavigationBar({ user, onLogout }: Props) {
               </button>
             ) : (
               <div className="navbar-brand">
-                <LogoMark size={32} />
+                <Link to={"/"}>
+                  <LogoMark size={32} />
+                </Link>
               </div>
             )}
             <nav>

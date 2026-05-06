@@ -6,7 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import Api from "../services/api";
 import CloneBanner from "../components/common/cloneBanner";
 
-function SignIn() {
+interface Props {
+  onLogin?: () => void;
+}
+
+function SignIn({ onLogin }: Props) {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -20,6 +24,7 @@ function SignIn() {
       setError("");
       Api.login(email, password)
         .then((response) => {
+          if (onLogin) onLogin();
           // console.log("Login successful:", response);
           navigate("/");
         })

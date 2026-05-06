@@ -3,8 +3,13 @@ import "../styles/learn.css";
 import "../styles/crypto-basics.css";
 import "../styles/navbar.css";
 import Footer from "../components/layout/Footer";
+import CloneBanner from "../components/common/cloneBanner";
 
-function Learn() {
+interface Props {
+  user: any;
+  onLogout: () => void;
+}
+function Learn({ user, onLogout }: Props) {
   const popularArticles = [
     {
       category: "BEGINNER'S GUIDE",
@@ -42,8 +47,11 @@ function Learn() {
 
   return (
     <>
-      <NavigationBar></NavigationBar>
+      <NavigationBar user={user} onLogout={onLogout}></NavigationBar>
       <div className="navbar-spacer"></div>
+      <CloneBanner
+        text={"This is a student project and is not affiliated with Coinbase"}
+      ></CloneBanner>
       <div className="learn">
         <div style={{ height: 50 }}></div>
         <section className="section-1">
@@ -512,6 +520,11 @@ function Learn() {
         </section>
       </div>
       <Footer></Footer>
+      <CloneBanner
+        text={
+          "This is a demo project and users should not enter real personal info"
+        }
+      ></CloneBanner>
     </>
   );
 }
